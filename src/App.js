@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
-import Login from './componentes/Login';
-import Search from './componentes/Search';
 import Album from './componentes/Album';
 import Favorites from './componentes/Favorites';
-import Profile from './componentes/Profile';
+import Login from './componentes/Login';
 import NotFound from './componentes/NotFound';
+import Profile from './componentes/Profile';
 import ProfileEdit from './componentes/ProfileEdit';
+import Search from './componentes/Search';
 
 class App extends React.Component {
   render() {
