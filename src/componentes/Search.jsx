@@ -6,6 +6,7 @@ class Search extends Component {
     return (
       <div data-testid="page-search">
         <Header />
+        <p>Search</p>
       </div>
     );
   }
