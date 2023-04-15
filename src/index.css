@@ -17,3 +17,17 @@ code {
   display: flex;
   justify-content: center;
 }
+.boxAlbum {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: black;
+  justify-content: center;
+}
+.album {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+  height: 250px;
+}

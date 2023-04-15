@@ -42,9 +42,3 @@ class Header extends Component {
 }
 
 export default Header;
-// {' '}
-// <link data-testid="link-to-favorites" rel="stylesheet" href="/favorites">teste</link>
-// {' '}
-// <link data-testid="link-to-favorites" rel="stylesheet" href="/favorites">teste</link>
-// {' '}
-// <link data-testid="link-to-profile" rel="stylesheet" href="./profile">teste</link>
