@@ -7,7 +7,7 @@ import MusicCard from './MusicCard';
 class Favorites extends Component {
   state = {
     favoritos: [],
-    // carregando: false,
+    carregando: false,
   };
 
   componentDidMount() {
@@ -15,23 +15,23 @@ class Favorites extends Component {
   }
 
   favorite = async () => {
-    // this.setState({
-    //   carregando: true,
-    // });
+    this.setState({
+      carregando: true,
+    });
     const fav = await getFavoriteSongs();
     this.setState({
-      // carregando: false,
+      carregando: false,
       favoritos: fav,
     });
   };
 
   render() {
-    const { favoritos } = this.state;
+    const { carregando, favoritos } = this.state;
     return (
       <div data-testid="page-favorites">
         <Header />
         <p>favorites</p>
-        {favoritos
+        {!carregando
           ? favoritos.map((element, index) => (
             <div key={ index }>
               <MusicCard
