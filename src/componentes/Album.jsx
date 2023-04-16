@@ -9,12 +9,16 @@ class Album extends Component {
   state = {
     album: [],
     info: '',
-    favoritos: [],
+    favoritos: '',
   };
 
   async componentDidMount() {
+    this.setState(
+      {
+        favoritos: await getFavoriteSongs(),
+      },
+    );
     await this.getMusic();
-    await this.favorite();
   }
 
   getMusic = async () => {

@@ -14,6 +14,11 @@ class MusicCard extends Component {
     this.check(trackName);
   }
 
+  componentDidUpdate() {
+    const { fav } = this.props;
+    fav();
+  }
+
   check = (trackName) => {
     const { favoritos } = this.props;
     if (favoritos.length > 0) {
