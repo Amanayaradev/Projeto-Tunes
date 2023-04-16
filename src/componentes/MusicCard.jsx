@@ -9,7 +9,27 @@ class MusicCard extends Component {
     checked: false,
   };
 
-  fav = async (e) => {
+  componentDidMount() {
+    const { trackName } = this.props;
+    this.check(trackName);
+  }
+
+  check = (trackName) => {
+    const { favoritos } = this.props;
+    if (favoritos.length > 0) {
+      favoritos.map((favCheck) => {
+        if (favCheck.trackName === trackName) {
+          this.setState({
+            checked: true,
+          });
+        }
+        return null;
+      });
+    }
+  };
+
+  favChange = async (e) => {
+    const { fav } = this.props;
     const { checked } = this.state;
     if (checked) {
       this.setState({
@@ -24,6 +44,7 @@ class MusicCard extends Component {
       this.setState({
         carregando: false,
       });
+      fav();
     }
   };
 
@@ -51,7 +72,7 @@ class MusicCard extends Component {
                   name="check"
                   id="check"
                   checked={ checked }
-                  onChange={ () => this.fav(music) }
+                  onChange={ () => this.favChange(music) }
                 />
               </label>)
         }

@@ -37,7 +37,6 @@ class Search extends Component {
   render() {
     const valueMin = 2;
     const { valueInput, carregando, artista, songs } = this.state;
-    console.log(songs);
     const disabled = valueInput.length < valueMin;
     return (
       carregando
