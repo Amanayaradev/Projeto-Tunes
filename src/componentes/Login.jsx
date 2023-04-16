@@ -7,6 +7,10 @@ class Login extends Component {
   state = {
     name: '',
     carregando: false,
+    description: '',
+    email: '',
+    image: '',
+
   };
 
   setName = ({ target }) => {
@@ -15,13 +19,35 @@ class Login extends Component {
     });
   };
 
+  descriptionInput = ({ target }) => {
+    this.setState({
+      description: target.value,
+    });
+  };
+
+  emailInput = ({ target }) => {
+    this.setState({
+      email: target.value,
+    });
+  };
+
+  imgInput = ({ target }) => {
+    this.setState({
+      image: target.value,
+    });
+  };
+
   onClick = async () => {
-    const { name } = this.state;
+    const { name, description,
+      email, image } = this.state;
     const { history } = this.props;
     this.setState({
       carregando: true,
     });
-    await createUser({ name });
+    await createUser({ name,
+      description,
+      email,
+      image });
     history.push('/search');
   };
 
@@ -35,7 +61,32 @@ class Login extends Component {
           carregando ? (<Carregando />)
             : (
               <form>
+                <label htmlFor="description">
+                  description
+                  <input
+                    id="description"
+                    type="text"
+                    onChange={ this.descriptionInput }
+                  />
+                </label>
+                <label htmlFor="email">
+                  email
+                  <input
+                    id="email"
+                    type="text"
+                    onChange={ this.emailInput }
+                  />
+                </label>
+                <label htmlFor="image">
+                  img
+                  <input
+                    id="image"
+                    type="text"
+                    onChange={ this.imgInput }
+                  />
+                </label>
                 <label htmlFor="name">
+                  name
                   <input
                     id="name"
                     type="text"
@@ -52,7 +103,8 @@ class Login extends Component {
                 >
                   entrar
                 </button>
-              </form>)
+              </form>
+            )
         }
       </div>
     );
