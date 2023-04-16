@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, removeSong } from '../services/favoriteSongsAPI';
 import Carregando from './Carregando';
 
 class MusicCard extends Component {
@@ -9,14 +9,9 @@ class MusicCard extends Component {
     checked: false,
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     const { trackName } = this.props;
     this.check(trackName);
-  }
-
-  componentDidUpdate() {
-    const { fav } = this.props;
-    fav();
   }
 
   check = (trackName) => {
@@ -39,7 +34,13 @@ class MusicCard extends Component {
     if (checked) {
       this.setState({
         checked: false,
+        carregando: true,
       });
+      await removeSong(e);
+      this.setState({
+        carregando: false,
+      });
+      fav();
     } else {
       this.setState({
         checked: true,
