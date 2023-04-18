@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../index.css';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import '../style/style.css';
 import AlbumInicial from './AlbumInicial';
 import Carregando from './Carregando';
 import Header from './Header';
@@ -41,11 +41,12 @@ class Search extends Component {
     return (
       carregando
         ? (
-          <div data-testid="page-search">
+          <div className="page-search" data-testid="page-search">
             <Header />
             <form>
               <label htmlFor="search">
                 <input
+                  className="inputSearch"
                   value={ valueInput }
                   data-testid="search-artist-input"
                   type="text"
@@ -53,12 +54,14 @@ class Search extends Component {
                 />
               </label>
               <button
+                className="btn btnSearch"
                 data-testid="search-artist-button"
                 disabled={ disabled }
                 onClick={ this.procuraBtn }
               >
-                Pesquisar
-
+                <span className=" look material-symbols-outlined">
+                  search
+                </span>
               </button>
             </form>
             <Resultado artista={ artista } songs={ songs.length } />

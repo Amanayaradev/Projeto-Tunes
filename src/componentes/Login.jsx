@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { createUser } from '../services/userAPI';
+import '../style/style.css';
 import Carregando from './Carregando';
 
 class Login extends Component {
@@ -56,53 +57,56 @@ class Login extends Component {
     const valorMin = 3;
     const disabled = name.length < valorMin;
     return (
-      <div data-testid="page-login">
+      <div className="page-login" data-testid="page-login">
+        <p className="login">Login</p>
         {
           carregando ? (<Carregando />)
             : (
-              <form>
-                <label htmlFor="description">
-                  description
-                  <input
-                    id="description"
-                    type="text"
-                    onChange={ this.descriptionInput }
-                  />
-                </label>
-                <label htmlFor="email">
-                  email
-                  <input
-                    id="email"
-                    type="text"
-                    onChange={ this.emailInput }
-                  />
-                </label>
-                <label htmlFor="image">
-                  img
-                  <input
-                    id="image"
-                    type="text"
-                    onChange={ this.imgInput }
-                  />
-                </label>
-                <label htmlFor="name">
-                  name
-                  <input
-                    id="name"
-                    type="text"
-                    onChange={ this.setName }
-                    data-testid="login-name-input"
-                  />
-                </label>
-
-                <button
-                  disabled={ disabled }
-                  data-testid="login-submit-button"
-                  type="button"
-                  onClick={ this.onClick }
-                >
-                  entrar
-                </button>
+              <form className="formLogin">
+                <div className="inputs">
+                  <label htmlFor="description">
+                    <input
+                      placeholder="descrição"
+                      id="description"
+                      type="text"
+                      onChange={ this.descriptionInput }
+                    />
+                  </label>
+                  <label htmlFor="email">
+                    <input
+                      placeholder="email"
+                      id="email"
+                      type="text"
+                      onChange={ this.emailInput }
+                    />
+                  </label>
+                  <label htmlFor="image">
+                    <input
+                      placeholder="link da imagem"
+                      id="image"
+                      type="text"
+                      onChange={ this.imgInput }
+                    />
+                  </label>
+                  <label htmlFor="name">
+                    <input
+                      placeholder="name"
+                      id="name"
+                      type="text"
+                      onChange={ this.setName }
+                      data-testid="login-name-input"
+                    />
+                  </label>
+                  <button
+                    className="btn btnLogin"
+                    disabled={ disabled }
+                    data-testid="login-submit-button"
+                    type="button"
+                    onClick={ this.onClick }
+                  >
+                    entrar
+                  </button>
+                </div>
               </form>
             )
         }

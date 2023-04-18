@@ -21,21 +21,41 @@ class Header extends Component {
     const { name, carregando } = this.state;
     return (
       <header data-testid="header-component">
-        <ul>
-          <li>
-            <Link data-testid="link-to-search" to="/search">search</Link>
-          </li>
-          <li>
-            <Link data-testid="link-to-favorites" to="/favorites">favorites</Link>
-          </li>
-          <li>
-            <Link data-testid="link-to-profile" to="/profile">profile</Link>
-          </li>
-        </ul>
         {
           carregando ? <Carregando />
-            : <p data-testid="header-user-name">{ name }</p>
+            : <p className="name" data-testid="header-user-name">{ name }</p>
         }
+        <div>
+          <ul className="nav">
+            <li>
+              <Link
+                className="linkNav linkAll material-symbols-outlined"
+                data-testid="link-to-search"
+                to="/search"
+              >
+                search
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="linkNav linkAll material-symbols-outlined"
+                data-testid="link-to-favorites"
+                to="/favorites"
+              >
+                favorite
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="linkNav linkAll material-symbols-outlined"
+                data-testid="link-to-profile"
+                to="/profile"
+              >
+                account_circle
+              </Link>
+            </li>
+          </ul>
+        </div>
       </header>
     );
   }

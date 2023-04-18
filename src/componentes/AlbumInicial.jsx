@@ -1,19 +1,22 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import '../index.css';
+import '../style/style.css';
 
 class AlbumInicial extends Component {
   render() {
     const { imgAlbumPrincipal, nameArtistaPrincipal, nameAlbumPrincipal, collectionId,
     } = this.props;
     return (
-      <div className="album">
-        <div>
+      <div className="boxAlbum">
+        <div className="album">
           <img src={ imgAlbumPrincipal } alt={ nameAlbumPrincipal } />
-          <p>{ nameAlbumPrincipal }</p>
-          <p>{ nameArtistaPrincipal }</p>
+          <div className="albumInicial">
+            <p>{ nameAlbumPrincipal }</p>
+            <p>{ nameArtistaPrincipal }</p>
+          </div>
           <Link
+            className="linkAll linkMusic"
             data-testid={ `link-to-album-${collectionId}` }
             to={ `/album/${collectionId}` }
           >

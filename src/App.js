@@ -7,11 +7,12 @@ import NotFound from './componentes/NotFound';
 import Profile from './componentes/Profile';
 import ProfileEdit from './componentes/ProfileEdit';
 import Search from './componentes/Search';
+import './style/style.css';
 
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div className="main">
         <Switch>
           <Route exact path="/" component={ Login } />
           <Route exact path="/search" component={ Search } />
