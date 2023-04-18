@@ -11,7 +11,7 @@ class Resultado extends Component {
             Resultado de álbuns de:
             {' '}
             {artista}
-          </p>) : (<p className="resultArtist">Nenhum álbum foi encontrado</p>)
+          </p>) : (<p className="resultArtist2">Nenhum álbum foi encontrado</p>)
     );
   }
 }
