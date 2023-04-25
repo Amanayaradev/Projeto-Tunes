@@ -71,7 +71,6 @@ class MusicCard extends Component {
           carregando ? <Carregando />
             : (
               <label htmlFor="check">
-                Favorita
                 <input
                   className="check"
                   data-testid={ `checkbox-music-${trackId}` }

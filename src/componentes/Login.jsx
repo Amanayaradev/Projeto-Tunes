@@ -58,7 +58,8 @@ class Login extends Component {
     const disabled = name.length < valorMin;
     return (
       <div className="page-login" data-testid="page-login">
-        <p className="login">Login</p>
+        <h1 className="login">Tunes</h1>
+        <p className="cadastro">Cadastre-se</p>
         {
           carregando ? (<Carregando />)
             : (

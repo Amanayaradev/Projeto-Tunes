@@ -26,6 +26,9 @@ class Header extends Component {
             : <p className="name" data-testid="header-user-name">{ name }</p>
         }
         <div>
+          <h2 className="tunes">Tunes</h2>
+        </div>
+        <div>
           <ul className="nav">
             <li>
               <Link

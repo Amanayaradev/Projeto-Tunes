@@ -1,9 +1,10 @@
 * {
   margin: 0;
+  padding: 0;
 }
 
 .main {
-  background: linear-gradient(to bottom, #854247, #452225);
+  background: linear-gradient(to bottom, #85424685, #452225);
   font-family: Anuphan , sans-serif;
   min-height: 100vh;
   text-align: center;
@@ -12,9 +13,21 @@
 .login {
   color: #ffbdc9;
   font-size: 5rem;
-  padding: 1rem 0 2rem;
+  padding: 1rem 0 1rem;
 }
-
+.tunes {
+  color: #8d7478;
+  font-size: 2.5rem;
+  padding: 1rem 0 1rem;
+}
+.cadastro {
+  color: #ffbdc9;
+  font-size: 1.5rem;
+  padding: 0.1rem;
+}
+.name {
+  width: 10rem;
+}
 .page-login {
 
   /* width: 100%;
@@ -83,6 +96,7 @@ input:focus {
 }
 
 header {
+  padding: 0 2rem;
   align-items: center;
   background: linear-gradient(to bottom, #d89b9f, #ffbdc9);
   display: flex;
@@ -104,7 +118,6 @@ header {
   color: #382419;
   font-family: Anuphan , sans-serif;
   font-size: 1.3rem;
-  padding-left: 40px;
 }
 
 .resultArtist2 {
@@ -116,13 +129,14 @@ header {
 }
 
 .nav {
-  display: flex;
+  margin: 0 auto;
+  width: 9rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .nav li {
   list-style: none;
-  margin-right: 2rem;
-  padding: 1rem;
 }
 
 .inputSearch {
@@ -163,19 +177,17 @@ header {
 @media ( max-width : 800px ) {
 
   header {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: block;
   }
 
   .nav {
-    display: flex;
+    width: 100%;
   }
 
+  .name {
+    display: none;
+  }
   .nav li {
-    margin: 0 auto;
-  }
-
-  .name, .nav li {
     color: #382419;
     font-size: 1.3rem;
     font-weight: 600;
