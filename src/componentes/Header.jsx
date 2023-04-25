@@ -23,10 +23,22 @@ class Header extends Component {
       <header data-testid="header-component">
         {
           carregando ? <Carregando />
-            : <p className="name" data-testid="header-user-name">{ name }</p>
+            : (
+              <Link
+                to="/"
+                className="name linkAll"
+                data-testid="header-user-name"
+              >
+                { name }
+              </Link>)
         }
         <div>
-          <h2 className="tunes">Tunes</h2>
+          <Link
+            className="linkAll"
+            to="/search"
+          >
+            <h2 className="tunes">Tunes</h2>
+          </Link>
         </div>
         <div>
           <ul className="nav">

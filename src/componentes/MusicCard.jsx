@@ -1,11 +1,13 @@
+import { Favorite, FavoriteBorder } from '@mui/icons-material';
+import { Checkbox } from '@mui/material';
+import { purple } from '@mui/material/colors';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
-import Carregando from './Carregando';
 
+const accent = purple.A200;
 class MusicCard extends Component {
   state = {
-    carregando: false,
     checked: false,
   };
 
@@ -34,54 +36,46 @@ class MusicCard extends Component {
     if (checked) {
       this.setState({
         checked: false,
-        carregando: true,
       });
       await removeSong(e);
-      this.setState({
-        carregando: false,
-      });
       fav();
     } else {
       this.setState({
         checked: true,
-        carregando: true,
       });
       await addSong(e);
-      this.setState({
-        carregando: false,
-      });
       fav();
     }
   };
 
   render() {
-    const { carregando, checked } = this.state;
+    const { checked } = this.state;
     const { previewUrl, trackName, trackId, music } = this.props;
     return (
-      <div>
+      <div className="music">
         <p>{ trackName }</p>
         <audio
-          data-testid="audio-component"
           src={ previewUrl }
           controls
         >
           <track kind="captions" />
         </audio>
-        {
-          carregando ? <Carregando />
-            : (
-              <label htmlFor="check">
-                <input
-                  className="check"
-                  data-testid={ `checkbox-music-${trackId}` }
-                  type="checkbox"
-                  name="check"
-                  id="check"
-                  checked={ checked }
-                  onChange={ () => this.favChange(music) }
-                />
-              </label>)
-        }
+        <label className="check" htmlFor="check">
+          <Checkbox
+            className="heart"
+            data-testid={ `checkbox-music-${trackId}` }
+            icon={ <FavoriteBorder /> }
+            checkedIcon={ <Favorite /> }
+            checked={ checked }
+            onChange={ () => this.favChange(music) }
+            sx={ {
+              color: accent,
+              '&.Mui-checked': {
+                color: accent,
+              },
+            } }
+          />
+        </label>
       </div>
     );
   }

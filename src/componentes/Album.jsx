@@ -42,12 +42,14 @@ class Album extends Component {
     return (
       <div data-testid="page-album">
         <Header />
-        <p data-testid="artist-name">
-          { info.artistName}
-        </p>
-        <p data-testid="album-name">
-          { info.collectionName }
-        </p>
+        <div className="albumName">
+          <p data-testid="artist-name">
+            { info.artistName}
+          </p>
+          <p data-testid="album-name">
+            { info.collectionName }
+          </p>
+        </div>
         <div>
           {
             album.map((element, index) => (
