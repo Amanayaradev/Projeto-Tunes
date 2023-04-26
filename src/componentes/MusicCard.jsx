@@ -70,18 +70,22 @@ class MusicCard extends Component {
         {
           carregando ? <Carregando />
             : (
-              <label htmlFor="check">
-                Favorita
-                <input
-                  className="check"
-                  data-testid={ `checkbox-music-${trackId}` }
-                  type="checkbox"
-                  name="check"
-                  id="check"
-                  checked={ checked }
-                  onChange={ () => this.favChange(music) }
-                />
-              </label>)
+              <div className="pretty p-default">
+                <div className="state" />
+                <label htmlFor="check">
+                  Check
+                  <input
+                    className="check"
+                    data-testid={ `checkbox-music-${trackId}` }
+                    type="checkbox"
+                    name="check"
+                    id="check"
+                    checked={ checked }
+                    onChange={ () => this.favChange(music) }
+                  />
+                </label>
+              </div>
+            )
         }
       </div>
     );
