@@ -1,11 +1,10 @@
 import { Favorite, FavoriteBorder } from '@mui/icons-material';
 import { Checkbox } from '@mui/material';
-import { purple } from '@mui/material/colors';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
+import MusicPlayer from './MusicPlayer';
 
-const accent = purple.A200;
 class MusicCard extends Component {
   state = {
     checked: false,
@@ -51,31 +50,39 @@ class MusicCard extends Component {
   render() {
     const { checked } = this.state;
     const { previewUrl, trackName, trackId, music } = this.props;
+    console.log(music);
+    const audioinfo = {
+      cover: music.artworkUrl100,
+      audioUrl: previewUrl,
+      artistName: '',
+      trackName,
+      colorElements: '#ffbdc9',
+    };
     return (
       <div className="music">
-        <p>{ trackName }</p>
-        <audio
-          src={ previewUrl }
-          controls
-        >
-          <track kind="captions" />
-        </audio>
-        <label className="check" htmlFor="check">
-          <Checkbox
-            className="heart"
-            data-testid={ `checkbox-music-${trackId}` }
-            icon={ <FavoriteBorder /> }
-            checkedIcon={ <Favorite /> }
-            checked={ checked }
-            onChange={ () => this.favChange(music) }
-            sx={ {
-              color: accent,
-              '&.Mui-checked': {
-                color: accent,
-              },
-            } }
-          />
-        </label>
+        <div className="boxPlayer">
+          <MusicPlayer info={ audioinfo } />
+          <label className="check" htmlFor="check">
+            <Checkbox
+              className="heart"
+              data-testid={ `checkbox-music-${trackId}` }
+              icon={
+                <FavoriteBorder
+                  sx={ {
+                    color: 'var(--corDaLetra)',
+                    fontSize: '2.5rem' } }
+                />
+              }
+              checkedIcon={
+                <Favorite
+                  sx={ { color: 'var(--corDaLetra)', fontSize: '2.5rem' } }
+                />
+              }
+              checked={ checked }
+              onChange={ () => this.favChange(music) }
+            />
+          </label>
+        </div>
       </div>
     );
   }

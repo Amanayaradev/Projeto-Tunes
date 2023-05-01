@@ -39,6 +39,7 @@ class Album extends Component {
 
   render() {
     const { album, info, favoritos } = this.state;
+
     return (
       <div data-testid="page-album">
         <Header />

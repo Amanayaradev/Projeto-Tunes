@@ -37,7 +37,7 @@ class Header extends Component {
             className="linkAll"
             to="/search"
           >
-            <h2 className="tunes">Tunes</h2>
+            <h2 className="tunesHeader">Tunes</h2>
           </Link>
         </div>
         <div>

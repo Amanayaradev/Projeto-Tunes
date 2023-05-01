@@ -1,4 +1,5 @@
 import { TextField } from '@mui/material';
+import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { createUser } from '../services/userAPI';
@@ -23,8 +24,7 @@ class Login extends Component {
   };
 
   onClick = async () => {
-    const { name,
-      email } = this.state;
+    const { name, email } = this.state;
     const { history } = this.props;
 
     await createUser({ name,
@@ -38,9 +38,9 @@ class Login extends Component {
     const valorMin = 3;
     const disabled = name.length < valorMin;
     return (
-      <div className="page-login" data-testid="page-login">
-        <h1 className="login">Tunes</h1>
-        <p className="cadastro">Login</p>
+      <div className="pageLogin" data-testid="page-login">
+        <h1 className="tunes">Tunes</h1>
+        {/* <p className="cadastro">Login</p> */}
         <form className="formLogin">
           <div className="inputs">
             <label htmlFor="name">
@@ -61,26 +61,41 @@ class Login extends Component {
                 placeholder="Email"
                 variant="filled"
                 onChange={ this.emailInput }
+                sx={ { ':after': { borderBottom: '2px solid #452225',
+                } } }
               />
             </label>
             <label htmlFor="senha">
               <TextField
+                type="password"
                 className="inputLogin"
                 hiddenLabel
                 id="filled-hidden-label-normal"
                 placeholder="Password"
                 variant="filled"
+                size="larger"
               />
             </label>
-            <button
-              className="btn btnLogin"
-              disabled={ disabled }
-              data-testid="login-submit-button"
-              type="button"
-              onClick={ this.onClick }
-            >
-              entrar
-            </button>
+            <div className="divBtnLogin">
+              <Button
+                className="btnLogin"
+                disabled={ disabled }
+                data-testid="login-submit-button"
+                type="button"
+                onClick={ this.onClick }
+                // variant="outlined"
+                variant="outlined"
+                size="large"
+                color="secondary"
+                sx={ {
+                  color: 'var(--corDaLetra)',
+                  border: '1px solid var(--corDaBorda)',
+                  ':hover': { border: '1px solid var(--corDaBorda)' },
+                } }
+              >
+                login
+              </Button>
+            </div>
           </div>
         </form>
       </div>

@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import React, { Component } from 'react';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import '../style/style.css';
@@ -45,21 +46,27 @@ class Search extends Component {
             <Header />
             <form>
               <label htmlFor="search">
-                <input
-                  className="inputSearch"
-                  value={ valueInput }
-                  data-testid="search-artist-input"
-                  type="text"
-                  onChange={ this.searchInput }
-                />
+                <div className="inputSearch">
+                  <TextField
+                    hiddenLabel
+                    id="filled-hidden-label-normal"
+                    placeholder="Album"
+                    variant="filled"
+                    className="inputLogin"
+                    value={ valueInput }
+                    data-testid="search-artist-input"
+                    type="text"
+                    onChange={ this.searchInput }
+                  />
+                </div>
               </label>
               <button
-                className="btn btnSearch"
+                className="btnSearch"
                 data-testid="search-artist-button"
                 disabled={ disabled }
                 onClick={ this.procuraBtn }
               >
-                <span className=" look material-symbols-outlined">
+                <span className="look material-symbols-outlined">
                   search
                 </span>
               </button>
