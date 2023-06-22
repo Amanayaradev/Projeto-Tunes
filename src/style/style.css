@@ -2,26 +2,45 @@
 
 * {
   margin: 0;
+  padding: 0;
 }
-
+:root {
+  --corDaLetra: #ffbdc9;
+  --corDaBorda: var(--corDaLetra)
+}
 .main {
-  background: linear-gradient(to bottom, #854247, #452225);
+  background: linear-gradient(to bottom, #854246e0, #452225);
   font-family: Anuphan , sans-serif;
   min-height: 100vh;
   text-align: center;
+  font-weight: 900;
 }
 
-.login {
+.tunes {
   color: #ffbdc9;
   font-size: 5rem;
-  padding: 1rem 0 2rem;
+  padding: 2rem 0 2rem;
 }
+<<<<<<< HEAD
 
 .page-login {
 
   padding: 4rem 0;
+=======
+.tunesHeader {
+  color: #452225;
+  font-size: 2rem;
+  padding: 1rem 0 1rem;
 }
-
+.cadastro {
+  color: #ffbdc9;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+.name {
+  padding: 1rem;
+>>>>>>> 29455aca2e121ec2a4051c03be8e08a91d949197
+}
 
 .inputs {
   display: grid;
@@ -29,25 +48,29 @@
 
 .formLogin {
   line-height: 5;
+<<<<<<< HEAD
+=======
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.pageLogin {
+  padding: 11vh 0;
+>>>>>>> 29455aca2e121ec2a4051c03be8e08a91d949197
 }
 
 input {
-  background-color: #ffe4d5c0;
-  border-color: #d16970;
-  border-radius: 0.5rem;
-  padding: 1rem 7rem;
   text-align: center;
 }
-
-input:focus {
-  background-color: #ffe4d5c0;
-  outline: none;
+.css-1ff8729-MuiInputBase-root-MuiFilledInput-root:after {
+  border-bottom: 2px solid #452225!important;
 }
 
 .btnLogin {
+  margin: 0 auto;
   border-radius: 2rem;
-  margin: 2.5rem auto;
   padding: 0.8rem 5rem;
+  color: #251811;
 }
 
 .btn {
@@ -63,8 +86,12 @@ input:focus {
 }
 
 .btnSearch {
-  margin: 1rem auto;
-  pointer-events: stroke;
+  align-items: center;
+  border: none;
+  bottom: unset;
+  cursor: pointer;
+  padding: 1rem;
+  background: none;
 }
 
 .look {
@@ -76,7 +103,6 @@ header {
   background: linear-gradient(to bottom, #d89b9f, #ffbdc9);
   display: flex;
   justify-content: space-between;
-  text-align: center;
 }
 
 .linkAll {
@@ -89,14 +115,46 @@ header {
   font-weight: 800;
 }
 
-.name, .nav li {
+.linkProfile {
+  font-size: 1rem;
+  margin: 2rem auto;
+  background: linear-gradient(to bottom, #b68487e3, #ffbdc9d2);
+  border-color: #754150;
+  border-radius: 0.2rem;
+  padding: 0.5;
+  color: #754150;
+}
+
+.linkExit {
+  margin: 0 auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-weight: 900;
+  color: #d16970;
+  min-width: 100vw;
+
+}
+.pFav {
+  padding: 4rem;
+}
+
+.albumName p, .pFav {
+  color: #251811;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.name, .nav li, .music p {
   color: #382419;
-  font-family: Anuphan , sans-serif;
   font-size: 1.3rem;
-  padding-left: 40px;
+}
+.resultArtist {
+  margin-top: 1rem;
 }
 
 .resultArtist2 {
+  margin-top: 1rem;
   color: #ffbdc9;
   display: flex;
   font-family: Anuphan , sans-serif;
@@ -105,23 +163,26 @@ header {
 }
 
 .nav {
-  display: flex;
+  margin: 0 auto;
+  width: 9rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .nav li {
   list-style: none;
-  margin-right: 2rem;
-  padding: 1rem;
 }
 
 .inputSearch {
   margin-top: 2rem;
 }
 
-/* .resultArtist {
+.boxPlayer {
   display: flex;
-  margin: 2.5rem auto 1rem;
-} */
+  border-radius: 0.4rem;
+  margin: 10px auto;
+  width: 100%;
+}
 
 .album {
   align-items: center;
@@ -131,10 +192,6 @@ header {
   justify-content: space-between;
   margin: 2.6rem 2.6rem 0;
   padding-right: 2rem;
-
-  /* border-style: inset; */
-
-  /* border-color: #c9876342; */
 }
 
 .album img {
@@ -145,26 +202,47 @@ header {
   padding-bottom: 1rem;
 }
 
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0 , 'wght' 400 , 'GRAD' 0 , 'opsz' 48;
+.music {
+  display: flex;
+  margin: 0 auto;
+  width: 75%;
+  align-items: center;
+}
+
+.music-box {
+  padding-top: 2rem;
+  margin: auto;
+  width: 70%;
+  border-radius: 25rem;
+}
+
+.albumName {
+  padding: 3.5rem;
+  line-height: 2;
+}
+.minhaImg {
+  max-width: 50vh;
+  border-radius: 100%;
+  margin: 3rem;
+}
+.inputLogin {
+  width: 35rem;
 }
 
 @media ( max-width : 800px ) {
 
   header {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: block;
   }
 
   .nav {
-    display: flex;
+    width: 100%;
   }
 
+  .name {
+    display: none;
+  }
   .nav li {
-    margin: 0 auto;
-  }
-
-  .name, .nav li {
     color: #382419;
     font-size: 1.3rem;
     font-weight: 600;

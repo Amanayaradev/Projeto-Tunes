@@ -1,11 +1,12 @@
+import { Favorite, FavoriteBorder } from '@mui/icons-material';
+import { Checkbox } from '@mui/material';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
-import Carregando from './Carregando';
+import MusicPlayer from './MusicPlayer';
 
 class MusicCard extends Component {
   state = {
-    carregando: false,
     checked: false,
   };
 
@@ -34,30 +35,31 @@ class MusicCard extends Component {
     if (checked) {
       this.setState({
         checked: false,
-        carregando: true,
       });
       await removeSong(e);
-      this.setState({
-        carregando: false,
-      });
       fav();
     } else {
       this.setState({
         checked: true,
-        carregando: true,
       });
       await addSong(e);
-      this.setState({
-        carregando: false,
-      });
       fav();
     }
   };
 
   render() {
-    const { carregando, checked } = this.state;
+    const { checked } = this.state;
     const { previewUrl, trackName, trackId, music } = this.props;
+    console.log(music);
+    const audioinfo = {
+      cover: music.artworkUrl100,
+      audioUrl: previewUrl,
+      artistName: '',
+      trackName,
+      colorElements: '#ffbdc9',
+    };
     return (
+<<<<<<< HEAD
       <div>
         <p>{ trackName }</p>
         <audio
@@ -87,6 +89,32 @@ class MusicCard extends Component {
               </div>
             )
         }
+=======
+      <div className="music">
+        <div className="boxPlayer">
+          <MusicPlayer info={ audioinfo } />
+          <label className="check" htmlFor="check">
+            <Checkbox
+              className="heart"
+              data-testid={ `checkbox-music-${trackId}` }
+              icon={
+                <FavoriteBorder
+                  sx={ {
+                    color: 'var(--corDaLetra)',
+                    fontSize: '2.5rem' } }
+                />
+              }
+              checkedIcon={
+                <Favorite
+                  sx={ { color: 'var(--corDaLetra)', fontSize: '2.5rem' } }
+                />
+              }
+              checked={ checked }
+              onChange={ () => this.favChange(music) }
+            />
+          </label>
+        </div>
+>>>>>>> 29455aca2e121ec2a4051c03be8e08a91d949197
       </div>
     );
   }
