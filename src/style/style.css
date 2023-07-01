@@ -4,13 +4,15 @@
   margin: 0;
   padding: 0;
 }
+
 :root {
   --corDaLetra: #ffbdc9;
   --corDaBorda: var(--corDaLetra)
 }
+
 .main {
   background: linear-gradient(to bottom, #854246e0, #452225);
-  font-family: Anuphan , sans-serif;
+  font-family: Anuphan, sans-serif;
   min-height: 100vh;
   text-align: center;
   font-weight: 900;
@@ -21,25 +23,26 @@
   font-size: 5rem;
   padding: 2rem 0 2rem;
 }
-<<<<<<< HEAD
 
 .page-login {
 
   padding: 4rem 0;
-=======
+}
+
 .tunesHeader {
   color: #452225;
   font-size: 2rem;
   padding: 1rem 0 1rem;
 }
+
 .cadastro {
   color: #ffbdc9;
   font-size: 1.5rem;
   margin-bottom: 2rem;
 }
+
 .name {
   padding: 1rem;
->>>>>>> 29455aca2e121ec2a4051c03be8e08a91d949197
 }
 
 .inputs {
@@ -48,22 +51,21 @@
 
 .formLogin {
   line-height: 5;
-<<<<<<< HEAD
-=======
   align-items: center;
   display: flex;
   justify-content: center;
 }
+
 .pageLogin {
   padding: 11vh 0;
->>>>>>> 29455aca2e121ec2a4051c03be8e08a91d949197
 }
 
 input {
   text-align: center;
 }
+
 .css-1ff8729-MuiInputBase-root-MuiFilledInput-root:after {
-  border-bottom: 2px solid #452225!important;
+  border-bottom: 2px solid #452225 !important;
 }
 
 .btnLogin {
@@ -79,7 +81,7 @@ input {
   border-radius: 0.8rem;
   color: #754150;
   display: block;
-  font-family: Open Sans , Helvetica Neue , sans-serif;
+  font-family: Open Sans, Helvetica Neue, sans-serif;
   font-size: 20px;
   font-weight: 800;
   text-align: center;
@@ -135,20 +137,25 @@ header {
   min-width: 100vw;
 
 }
+
 .pFav {
   padding: 4rem;
 }
 
-.albumName p, .pFav {
+.albumName p,
+.pFav {
   color: #251811;
   font-size: 1.5rem;
   font-weight: 900;
 }
 
-.name, .nav li, .music p {
+.name,
+.nav li,
+.music p {
   color: #382419;
   font-size: 1.3rem;
 }
+
 .resultArtist {
   margin-top: 1rem;
 }
@@ -157,7 +164,7 @@ header {
   margin-top: 1rem;
   color: #ffbdc9;
   display: flex;
-  font-family: Anuphan , sans-serif;
+  font-family: Anuphan, sans-serif;
   font-size: 1.3rem;
   padding-left: 40px;
 }
@@ -220,16 +227,18 @@ header {
   padding: 3.5rem;
   line-height: 2;
 }
+
 .minhaImg {
   max-width: 50vh;
   border-radius: 100%;
   margin: 3rem;
 }
+
 .inputLogin {
   width: 35rem;
 }
 
-@media ( max-width : 800px ) {
+@media (max-width : 800px) {
 
   header {
     display: block;
@@ -242,6 +251,7 @@ header {
   .name {
     display: none;
   }
+
   .nav li {
     color: #382419;
     font-size: 1.3rem;

@@ -1,9 +1,11 @@
 import { Favorite, FavoriteBorder } from '@mui/icons-material';
-import { Checkbox } from '@mui/material';
 import PropTypes from 'prop-types';
+// import { Checkbox } from '@mui/material';
+import { Checkbox } from '@mui/material';
 import React, { Component } from 'react';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
 import MusicPlayer from './MusicPlayer';
+// import { PropTypes } from '@mui/material';
 
 class MusicCard extends Component {
   state = {
@@ -50,7 +52,6 @@ class MusicCard extends Component {
   render() {
     const { checked } = this.state;
     const { previewUrl, trackName, trackId, music } = this.props;
-    console.log(music);
     const audioinfo = {
       cover: music.artworkUrl100,
       audioUrl: previewUrl,
@@ -59,70 +60,69 @@ class MusicCard extends Component {
       colorElements: '#ffbdc9',
     };
     return (
-<<<<<<< HEAD
       <div>
-        <p>{ trackName }</p>
-        <audio
-          data-testid="audio-component"
-          src={ previewUrl }
-          controls
-        >
-          <track kind="captions" />
-        </audio>
-        {
-          carregando ? <Carregando />
-            : (
-              <div className="pretty p-default">
-                <div className="state" />
-                <label htmlFor="check">
-                  Check
-                  <input
-                    className="check"
-                    data-testid={ `checkbox-music-${trackId}` }
-                    type="checkbox"
-                    name="check"
-                    id="check"
-                    checked={ checked }
-                    onChange={ () => this.favChange(music) }
-                  />
-                </label>
-              </div>
-            )
-        }
-=======
-      <div className="music">
-        <div className="boxPlayer">
-          <MusicPlayer info={ audioinfo } />
-          <label className="check" htmlFor="check">
-            <Checkbox
-              className="heart"
-              data-testid={ `checkbox-music-${trackId}` }
-              icon={
-                <FavoriteBorder
-                  sx={ {
-                    color: 'var(--corDaLetra)',
-                    fontSize: '2.5rem' } }
-                />
-              }
-              checkedIcon={
-                <Favorite
-                  sx={ { color: 'var(--corDaLetra)', fontSize: '2.5rem' } }
-                />
-              }
-              checked={ checked }
-              onChange={ () => this.favChange(music) }
-            />
-          </label>
+        <div>
+          <div className="pretty p-default">
+            <div className="state" />
+
+          </div>
         </div>
->>>>>>> 29455aca2e121ec2a4051c03be8e08a91d949197
+        <div
+          className="music"
+        >
+          <div
+            className="boxPlayer"
+          >
+            <MusicPlayer
+              info={ audioinfo }
+            />
+            <label
+              className="check"
+              htmlFor="check"
+            >
+              <Checkbox
+                className="heart"
+                data-testid={ `checkbox-music-${trackId}` }
+                icon={
+                  <FavoriteBorder
+                    sx={ {
+                      color: 'var(--corDaLetra)',
+                      fontSize: '2.5rem' } }
+                  />
+                }
+                checkedIcon={
+                  <Favorite
+                    sx={ { color: 'var(--corDaLetra)', fontSize: '2.5rem' } }
+                  />
+                }
+                checked={ checked }
+                onChange={ () => this.favChange(music) }
+              />
+            </label>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
 MusicCard.propTypes = {
+  fav: PropTypes.func,
+  favoritos: PropTypes.shape({
+    length: PropTypes.number,
+    map: PropTypes.func,
+  }),
+  // music: PropTypes.shape({
+  //   artworkUrl100: PropTypes.any,
+  // }),
   previewUrl: PropTypes.any,
+  trackId: PropTypes.any,
   trackName: PropTypes.any,
 }.isRequered;
+
+// MusicCard.propTypes = {
+//   previewUrl: PropTypes.any,
+//   trackName: PropTypes.any,
+// }.isRequered;
 
 export default MusicCard;
